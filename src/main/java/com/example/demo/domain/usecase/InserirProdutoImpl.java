@@ -3,11 +3,11 @@ package com.example.demo.domain.usecase;
 import com.example.demo.domain.gateway.GatewayProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BuscaProdutoImpl  implements BuscaProduto{
+public class InserirProdutoImpl implements InserirProduto {
     @Autowired
     GatewayProduct gatewayProduct;
     @Override
-    public BuscaProduto buscarProduto(Long id) {
-        return gatewayProduct.buscarProdutoGateway(id);
+    public BuscaProduto inserirProduto(BuscaProduto buscaProduto) {
+        return gatewayProduct.inserirProdutoGateway(buscaProduto);
     }
 }
