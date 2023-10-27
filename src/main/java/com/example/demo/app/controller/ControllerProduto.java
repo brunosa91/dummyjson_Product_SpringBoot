@@ -19,8 +19,6 @@ public class ControllerProduto {
     @Autowired
     ServiceProduct serviceProduct;
 
-    @Autowired
-    FeingClient  feingClient;
 
     @GetMapping(value = "/{id}")
  public ResponseEntity<Response> buscaPorId(@PathVariable Long id){
