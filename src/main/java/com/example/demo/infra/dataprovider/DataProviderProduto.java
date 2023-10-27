@@ -3,6 +3,7 @@ package com.example.demo.infra.dataprovider;
 import com.example.demo.domain.gateway.GatewayProduct;
 import com.example.demo.domain.model.ProductModel;
 import com.example.demo.infra.feign.FeingClient;
+import com.example.demo.infra.feign.ProdutoDto;
 import com.example.demo.infra.mapper.MapperDataProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,13 @@ public class DataProviderProduto implements GatewayProduct {
 
     @Override
     public List<ProductModel> listarProdutosGateway() {
-        return null;
+
+        ProdutoDto produtoDtoList = feingClient.getAllProducts();
+
+        List<ProductModel> productModelsList = produtoDtoList.getProducts();
+
+        log.info("DATAAAA PROVIDER  allll-----" +productModelsList);
+
+        return productModelsList;
     }
 }

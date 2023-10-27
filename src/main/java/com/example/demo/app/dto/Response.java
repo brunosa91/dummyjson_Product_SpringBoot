@@ -31,4 +31,21 @@ public class Response {
     private String thumbnail;
 
     private List<String> images;
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", discountPercentage=" + discountPercentage +
+                ", rating=" + rating +
+                ", stock=" + stock +
+                ", brand='" + brand + '\'' +
+                ", category='" + category + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }

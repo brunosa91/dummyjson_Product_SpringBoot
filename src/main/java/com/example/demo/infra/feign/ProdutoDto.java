@@ -1,27 +1,24 @@
 package com.example.demo.infra.feign;
 
+import com.example.demo.domain.model.ProductModel;
 import com.example.demo.infra.entidade.ProdutoEntidade;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProdutoDto {
-    private Long id;
-    private String title;
 
-    private String description;
+    private List<ProductModel> products;
+    private Long total;
+    private Long skip;
+    private Long limit;
 
-    private Long price;
-
-    private Long discountPercentage;
-    private Long rating;
-
-    private Long stock;
-
-    private String brand;
-    private String category;
-
-    private String thumbnail;
-
-    private List<String> images;
 
 }
