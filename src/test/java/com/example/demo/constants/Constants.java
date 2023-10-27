@@ -12,6 +12,8 @@ public class Constants {
     public static final List<String> image = new ArrayList<>();
     public static final Response RESPONSE = new Response(1L,"Gulab Powder 50 Gram","Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds", 70L,13L,4L,47L,"Dry Rose","groceries", "https://i.dummyjson.com/data/products/25/thumbnail.jpg",image );
 
+    public static final List<Response> PRODUCT_RESPONSE_LIST = new ArrayList<>();
+
     public static final List<ProductModel> PRODUCT_MODEL_LIST = new ArrayList<>();
     public static final ProductModel PRODUCT_MODEL = new ProductModel(1L,"Gulab Powder 50 Gram","Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds", 70L,13L,4L,47L,"Dry Rose","groceries", "https://i.dummyjson.com/data/products/25/thumbnail.jpg",image);
 

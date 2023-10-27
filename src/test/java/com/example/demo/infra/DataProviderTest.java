@@ -17,6 +17,7 @@ import static com.example.demo.constants.Constants.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +63,7 @@ public class DataProviderTest {
         productModelList.add(PRODUCT_MODEL);
 
 
-
+        PRODUTO_DTO.setProducts(productModelList);
 
         when(feingClient.getAllProducts()).thenReturn((PRODUTO_DTO));
 
@@ -77,6 +78,27 @@ public class DataProviderTest {
     }
 
 
+
+    @Test
+    public void findByProduct(){
+
+        List<ProductModel> productModelList = new ArrayList<>();
+        productModelList.add(PRODUCT_MODEL);
+
+
+        PRODUTO_DTO.setProducts(productModelList);
+
+        when(feingClient.searchProducts("iphone")).thenReturn((PRODUTO_DTO));
+
+
+        List<ProductModel>  sut = dataProviderProduto.BuscarPorProdutoGateway("iphone");
+
+
+
+        Assertions.assertThat(sut).isNotEmpty();
+        Assertions.assertThat(sut).isEqualTo(PRODUTO_DTO.getProducts());
+
+    }
 
 
 

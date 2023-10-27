@@ -85,5 +85,30 @@ public class ControllerTest {
                 .andExpect(jsonPath("$",hasSize(0)));
     }
 
-    
+    @Test
+    public void findByProduct_ReturnProductList() throws Exception{
+
+        List<Response> responseList = new ArrayList<>();
+        responseList.add(RESPONSE);
+        when(serviceProduct.findAllByProducts("iphone")).thenReturn(responseList);
+
+
+        mockMvc.perform(get("/produto/products?product=iphone"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[0].id").value(RESPONSE.getId()));
+    }
+
+    @Test
+    public void findByProduct_ReturnEmptyList() throws Exception{
+        when(serviceProduct.findAllByProducts("teste")).thenReturn(Collections.emptyList());
+
+
+        mockMvc.perform(get("/produto/products?product=teste"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$",hasSize(0)));
+    }
+
+
+
 }
