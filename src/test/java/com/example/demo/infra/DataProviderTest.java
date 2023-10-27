@@ -16,6 +16,8 @@ import static com.example.demo.constants.Constants.*;
 
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -48,11 +50,33 @@ public class DataProviderTest {
 
         when(feingClient.findById(anyLong())).thenThrow(FeignException.NotFound.class);
 
-        dataProviderProduto.buscarPorIdGateway(1L);
 
         Assertions.assertThatExceptionOfType(EntityNotFoundException.class).isThrownBy(()->dataProviderProduto.buscarPorIdGateway(1L));
 
     }
+
+    @Test
+    public void findAll(){
+
+        List<ProductModel> productModelList = new ArrayList<>();
+        productModelList.add(PRODUCT_MODEL);
+
+
+
+
+        when(feingClient.getAllProducts()).thenReturn((PRODUTO_DTO));
+
+
+       List<ProductModel>  sut = dataProviderProduto.listarProdutosGateway();
+
+
+
+        Assertions.assertThat(sut).isNotEmpty();
+        Assertions.assertThat(sut).isEqualTo(PRODUTO_DTO.getProducts());
+
+    }
+
+
 
 
 

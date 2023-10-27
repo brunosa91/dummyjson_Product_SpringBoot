@@ -24,7 +24,7 @@ public class ControllerProduto {
 
     @GetMapping(value = "/{id}")
  public ResponseEntity<Response> buscaPorId(@PathVariable Long id){
-Response response = serviceProduct.findCupomById(id);
+Response response = serviceProduct.findById(id);
 
         log.info("CONTROLER ID-----" +response);
 

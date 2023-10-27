@@ -29,7 +29,7 @@ public class ServiceProductImpl  implements ServiceProduct{
     @Autowired
     BuscaPorProduto buscaPorProduto;
     @Override
-    public Response findCupomById(Long id) {
+    public Response findById(Long id) {
 
         Response response = mapperService.ProductModeltoResponseDto(buscaPorId.buscarProdutoPorId(id));
 

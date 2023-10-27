@@ -6,7 +6,7 @@ import com.example.demo.domain.model.ProductModel;
 import java.util.List;
 
 public interface ServiceProduct {
-      Response findCupomById (Long id);
+      Response findById (Long id);
 
       List<Response> findAll();
 
