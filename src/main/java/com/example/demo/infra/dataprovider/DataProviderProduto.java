@@ -4,6 +4,7 @@ import com.example.demo.domain.gateway.GatewayProduct;
 import com.example.demo.domain.model.ProductModel;
 import com.example.demo.infra.feign.FeingClient;
 import com.example.demo.infra.feign.ProdutoDto;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,7 +34,12 @@ public class DataProviderProduto implements GatewayProduct {
 
         ProductModel productModel = feingClient.findById(id);
 
-        log.info("DATAAAA PROVIDER -----" +productModel);
+        if(productModel ==  null){
+            throw new EntityNotFoundException("ID INEXISTENTE");
+
+        }
+
+        log.info("DATA PROVIDER -----" +productModel);
 
         return productModel;
     }

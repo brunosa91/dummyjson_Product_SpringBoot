@@ -3,15 +3,14 @@ package com.example.demo.cross;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.Instant;
 
 @RestControllerAdvice
-public class ResourceExceptionHandler {
+public class ResourceExceptionHandler extends RuntimeException  {
 
 	
 	@ExceptionHandler(EntityNotFoundException.class)
@@ -23,19 +22,9 @@ public class ResourceExceptionHandler {
 	
 	}
 	
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity FixError400(MethodArgumentNotValidException e) {
-		var err = e.getFieldErrors();
-        return ResponseEntity.badRequest().body(err.stream().map(DataErrorValidation::new).toList());
-    }
+
 	
-	private record DataErrorValidation(String campo , String mensagem) {
-		public DataErrorValidation(FieldError err) {
-			this(err.getField(), err.getDefaultMessage());
-		}
-		
-	}
-	
+
 	
 	
 }

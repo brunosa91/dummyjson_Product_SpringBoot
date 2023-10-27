@@ -26,7 +26,7 @@ public class ControllerProduto {
 public ResponseEntity<Response> buscaPorId(@PathVariable Long id){
 Response response = serviceProduct.findCupomById(id);
 
-        log.info("CONTROLERRR -----" +response);
+        log.info("CONTROLER ID-----" +response);
 
 return ResponseEntity.ok(response);
 
@@ -36,7 +36,7 @@ return ResponseEntity.ok(response);
     public ResponseEntity<List<Response>> buscaPorTodos(){
 
         List<Response> responsesList = serviceProduct.findAll();
-        log.info("CONTROLERRR -----" +responsesList);
+        log.info("CONTROLER TODOS PRODUTOS -----" +responsesList);
 
         return ResponseEntity.ok(responsesList);
 
@@ -46,7 +46,7 @@ return ResponseEntity.ok(response);
     public ResponseEntity<List<Response>> buscaPorProdutos( @RequestParam String product){
 
         List<Response> responsesList = serviceProduct.findAllByProducts(product);
-        log.info("CONTROLERRR -----" +responsesList);
+        log.info("CONTROLER PRODUTO-----" +responsesList);
 
         return ResponseEntity.ok(responsesList);
 

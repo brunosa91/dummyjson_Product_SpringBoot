@@ -43,7 +43,7 @@ public class ServiceProductImpl  implements ServiceProduct{
 
         List<ProductModel> productModelsList = listarProdutos.listarProdutos();
         List<Response> responsesList = mapperService.ProductModeltoResponseDtoList(productModelsList);
-        log.info("SERVICE TODOSSS -----" + responsesList);
+        log.info("SERVICE TODOS -----" + responsesList);
 
         return responsesList;
 
