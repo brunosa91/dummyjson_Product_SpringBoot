@@ -13,7 +13,7 @@ const Header = () => {
              className={({ isActive }) => `nav_link${isActive ? " active" : ""}`}>dummyjson-project</NavLink>
               </S.Logo>
               <S.Principal>
-            <NavLink to="/produto"
+            <NavLink to="/"
              className={({ isActive }) => `nav_link${isActive ? " active" : ""}`}>CATÁLOGO</NavLink>
             </S.Principal>
             

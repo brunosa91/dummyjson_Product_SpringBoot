@@ -8,13 +8,11 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 35px;
+  gap: 5px;
   position: sticky;
   z-index: 2;
 
-  > hr {
-    width: 70px;
-  }
+ 
 
   
 
@@ -22,7 +20,6 @@ export const Header = styled.header`
     color: ${colors.black};
     font-family: ${colors.text};
     text-decoration: none;
-    text-transform: uppercase;
     font-size: 16px;
   }
 
@@ -38,19 +35,21 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.div`
-  width: 5%;
+  width: 50%;
   height: 75px;
-  color: ${colors.white};
+  background-color: ${colors.orange};
+
+  color: ${colors.blue};
   font-family: ${colors.white};
   font-size: 13px;
   display: flex;
-  justify-content: flex-start;
+  justify-content:  space-around;
   align-items: center;
-  margin-left:30px
+
   `;
 
   export const Principal = styled.div`
-  width: 40%;
+  width: 50%;
   height: 75px;
   color: ${colors.white};
   font-family: ${colors.white};
