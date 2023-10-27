@@ -23,7 +23,7 @@ public class ControllerProduto {
     FeingClient  feingClient;
 
     @GetMapping(value = "/{id}")
-public ResponseEntity<Response> buscaPorId(@PathVariable Long id){
+ public ResponseEntity<Response> buscaPorId(@PathVariable Long id){
 Response response = serviceProduct.findCupomById(id);
 
         log.info("CONTROLER ID-----" +response);
