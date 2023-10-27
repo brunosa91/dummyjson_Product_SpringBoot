@@ -1,23 +1,51 @@
 package com.example.demo.infra.dataprovider;
 
 import com.example.demo.domain.gateway.GatewayProduct;
-import com.example.demo.domain.usecase.BuscaProduto;
+import com.example.demo.domain.model.ProductModel;
+import com.example.demo.infra.feign.FeingClient;
+import com.example.demo.infra.mapper.MapperDataProvider;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Objects;
+
+@Component
+@Slf4j
 
 public class DataProviderProduto implements GatewayProduct {
+
+    @Autowired
+    MapperDataProvider mapperDataProvider;
+
+
+
+    @Autowired
+    FeingClient feingClient;
+
+
+
+
+
+
     @Override
-    public BuscaProduto buscarProdutoGateway(Long id) {
+    public ProductModel buscarProdutoGateway(Long id) {
+
+        ProductModel productModel = feingClient.findById(id);
+
+        log.info("DATAAAA PROVIDER -----" +productModel);
+
+        return productModel;
+    }
+
+    @Override
+    public ProductModel inserirProdutoGateway(ProductModel productModel) {
         return null;
     }
 
     @Override
-    public BuscaProduto inserirProdutoGateway(BuscaProduto buscaProduto) {
-        return null;
-    }
-
-    @Override
-    public List<BuscaProduto> listarProdutosGateway() {
+    public List<ProductModel> listarProdutosGateway() {
         return null;
     }
 }

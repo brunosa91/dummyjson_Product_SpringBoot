@@ -1,6 +1,8 @@
 package com.example.demo.domain.usecase;
 
+import com.example.demo.domain.model.ProductModel;
+
 public interface InserirProduto {
-    BuscaProduto inserirProduto(BuscaProduto buscaProduto);
+    ProductModel inserirProduto(ProductModel productModel);
 
 }

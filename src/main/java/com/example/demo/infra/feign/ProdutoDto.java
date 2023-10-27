@@ -1,17 +1,10 @@
-package com.example.demo.app.dto;
+package com.example.demo.infra.feign;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.demo.infra.entidade.ProdutoEntidade;
 
 import java.util.List;
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Response {
 
+public class ProdutoDto {
     private Long id;
     private String title;
 
@@ -25,10 +18,10 @@ public class Response {
     private Long stock;
 
     private String brand;
-
     private String category;
 
     private String thumbnail;
 
     private List<String> images;
+
 }
