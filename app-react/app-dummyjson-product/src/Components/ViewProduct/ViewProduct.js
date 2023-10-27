@@ -13,8 +13,8 @@ export const Card = styled.div`
 
   > img {
     margin-top: 5px;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 10px 5px 10px ${colors.black}90;
