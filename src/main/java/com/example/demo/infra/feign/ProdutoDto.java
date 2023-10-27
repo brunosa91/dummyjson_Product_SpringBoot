@@ -1,7 +1,6 @@
 package com.example.demo.infra.feign;
 
 import com.example.demo.domain.model.ProductModel;
-import com.example.demo.infra.entidade.ProdutoEntidade;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

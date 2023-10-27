@@ -8,5 +8,7 @@ import java.util.List;
 public interface ServiceProduct {
       Response findCupomById (Long id);
 
-      List<Response> RESPONSE_LIST();
+      List<Response> findAll();
+
+      List<Response> findAllByProducts(String product);
 }

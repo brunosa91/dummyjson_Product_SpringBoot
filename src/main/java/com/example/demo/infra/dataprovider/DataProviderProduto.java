@@ -4,7 +4,6 @@ import com.example.demo.domain.gateway.GatewayProduct;
 import com.example.demo.domain.model.ProductModel;
 import com.example.demo.infra.feign.FeingClient;
 import com.example.demo.infra.feign.ProdutoDto;
-import com.example.demo.infra.mapper.MapperDataProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,8 +16,7 @@ import java.util.Objects;
 
 public class DataProviderProduto implements GatewayProduct {
 
-    @Autowired
-    MapperDataProvider mapperDataProvider;
+
 
 
 
@@ -31,7 +29,7 @@ public class DataProviderProduto implements GatewayProduct {
 
 
     @Override
-    public ProductModel buscarProdutoGateway(Long id) {
+    public ProductModel buscarPorIdGateway(Long id) {
 
         ProductModel productModel = feingClient.findById(id);
 
@@ -41,9 +39,17 @@ public class DataProviderProduto implements GatewayProduct {
     }
 
     @Override
-    public ProductModel inserirProdutoGateway(ProductModel productModel) {
-        return null;
+    public List<ProductModel> BuscarPorProdutoGateway(String product) {
+        ProdutoDto produtoDtoList = feingClient.searchProducts(product);
+
+        List<ProductModel> productModelsList = produtoDtoList.getProducts();
+
+
+
+
+        return productModelsList;
     }
+
 
     @Override
     public List<ProductModel> listarProdutosGateway() {
